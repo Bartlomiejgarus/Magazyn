@@ -1,4 +1,4 @@
-﻿namespace Magazyn
+﻿namespace Warehouse
 {
     partial class LoginForm
     {

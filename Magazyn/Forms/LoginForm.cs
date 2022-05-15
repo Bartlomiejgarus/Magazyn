@@ -1,4 +1,4 @@
-namespace Magazyn
+namespace Warehouse
 {
     public partial class LoginForm : Form
     {

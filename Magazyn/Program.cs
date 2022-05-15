@@ -1,4 +1,4 @@
-namespace Magazyn
+namespace Warehouse
 {
     internal static class Program
     {
