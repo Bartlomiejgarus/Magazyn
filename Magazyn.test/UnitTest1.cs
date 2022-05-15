@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Magazyn.test
+namespace Warehouse.test
 {
     public class UnitTest1
     {
