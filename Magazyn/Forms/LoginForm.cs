@@ -1,4 +1,4 @@
-namespace Warehouse
+namespace Warehouse.Forms
 {
     public partial class LoginForm : Form
     {
