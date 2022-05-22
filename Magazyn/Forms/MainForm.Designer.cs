@@ -28,105 +28,170 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.pGeneral = new System.Windows.Forms.Panel();
+            this.btUsers = new System.Windows.Forms.Button();
+            this.btContractor = new System.Windows.Forms.Button();
+            this.btTowards = new System.Windows.Forms.Button();
+            this.btIncoming = new System.Windows.Forms.Button();
+            this.btSale = new System.Windows.Forms.Button();
+            this.pMain = new System.Windows.Forms.Panel();
+            this.ssMain = new System.Windows.Forms.StatusStrip();
+            this.ssVersion = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ssUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tcTabs = new System.Windows.Forms.TabControl();
+            this.pGeneral.SuspendLayout();
+            this.pMain.SuspendLayout();
+            this.ssMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pGeneral
             // 
-            this.panel1.Controls.Add(this.button11);
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(944, 70);
-            this.panel1.TabIndex = 1;
+            this.pGeneral.Controls.Add(this.btUsers);
+            this.pGeneral.Controls.Add(this.btContractor);
+            this.pGeneral.Controls.Add(this.btTowards);
+            this.pGeneral.Controls.Add(this.btIncoming);
+            this.pGeneral.Controls.Add(this.btSale);
+            this.pGeneral.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pGeneral.Location = new System.Drawing.Point(0, 0);
+            this.pGeneral.Name = "pGeneral";
+            this.pGeneral.Size = new System.Drawing.Size(944, 70);
+            this.pGeneral.TabIndex = 1;
             // 
-            // button11
+            // btUsers
             // 
-            this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Location = new System.Drawing.Point(752, 0);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(192, 70);
-            this.button11.TabIndex = 6;
-            this.button11.Text = "Użytkownicy";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btUsers.BackColor = System.Drawing.Color.Thistle;
+            this.btUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btUsers.Location = new System.Drawing.Point(752, 0);
+            this.btUsers.Name = "btUsers";
+            this.btUsers.Size = new System.Drawing.Size(192, 70);
+            this.btUsers.TabIndex = 6;
+            this.btUsers.Text = "Użytkownicy";
+            this.btUsers.UseVisualStyleBackColor = false;
+            this.btUsers.Click += new System.EventHandler(this.btUsers_Click);
             // 
-            // button9
+            // btContractor
             // 
-            this.button9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(564, 0);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(188, 70);
-            this.button9.TabIndex = 4;
-            this.button9.Text = "Kontrahenci";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btContractor.BackColor = System.Drawing.Color.Salmon;
+            this.btContractor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btContractor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btContractor.Location = new System.Drawing.Point(564, 0);
+            this.btContractor.Name = "btContractor";
+            this.btContractor.Size = new System.Drawing.Size(188, 70);
+            this.btContractor.TabIndex = 4;
+            this.btContractor.Text = "Kontrahenci";
+            this.btContractor.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // btTowards
             // 
-            this.button8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(376, 0);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(188, 70);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "Słownik towarów";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btTowards.BackColor = System.Drawing.Color.Khaki;
+            this.btTowards.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btTowards.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btTowards.Location = new System.Drawing.Point(376, 0);
+            this.btTowards.Name = "btTowards";
+            this.btTowards.Size = new System.Drawing.Size(188, 70);
+            this.btTowards.TabIndex = 3;
+            this.btTowards.Text = "Słownik towarów";
+            this.btTowards.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btIncoming
             // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(188, 0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(188, 70);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "Przyjęcia";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btIncoming.BackColor = System.Drawing.Color.YellowGreen;
+            this.btIncoming.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btIncoming.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btIncoming.Location = new System.Drawing.Point(188, 0);
+            this.btIncoming.Name = "btIncoming";
+            this.btIncoming.Size = new System.Drawing.Size(188, 70);
+            this.btIncoming.TabIndex = 2;
+            this.btIncoming.Text = "Przyjęcia";
+            this.btIncoming.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btSale
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.Control;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(0, 0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(188, 70);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Sprzedaż";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btSale.BackColor = System.Drawing.Color.SkyBlue;
+            this.btSale.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSale.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btSale.Location = new System.Drawing.Point(0, 0);
+            this.btSale.Name = "btSale";
+            this.btSale.Size = new System.Drawing.Size(188, 70);
+            this.btSale.TabIndex = 1;
+            this.btSale.Text = "Sprzedaż";
+            this.btSale.UseVisualStyleBackColor = false;
+            // 
+            // pMain
+            // 
+            this.pMain.Controls.Add(this.tcTabs);
+            this.pMain.Controls.Add(this.ssMain);
+            this.pMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pMain.Location = new System.Drawing.Point(0, 70);
+            this.pMain.Name = "pMain";
+            this.pMain.Size = new System.Drawing.Size(944, 431);
+            this.pMain.TabIndex = 2;
+            // 
+            // ssMain
+            // 
+            this.ssMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ssVersion,
+            this.ssUser});
+            this.ssMain.Location = new System.Drawing.Point(0, 409);
+            this.ssMain.Name = "ssMain";
+            this.ssMain.Size = new System.Drawing.Size(944, 22);
+            this.ssMain.TabIndex = 0;
+            this.ssMain.Text = "ssMain";
+            // 
+            // ssVersion
+            // 
+            this.ssVersion.Name = "ssVersion";
+            this.ssVersion.Size = new System.Drawing.Size(87, 17);
+            this.ssVersion.Text = "Wersja 1.0.0.0   ";
+            // 
+            // ssUser
+            // 
+            this.ssUser.Name = "ssUser";
+            this.ssUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ssUser.Size = new System.Drawing.Size(30, 17);
+            this.ssUser.Text = "User";
+            // 
+            // tcTabs
+            // 
+            this.tcTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcTabs.Location = new System.Drawing.Point(0, 0);
+            this.tcTabs.Name = "tcTabs";
+            this.tcTabs.SelectedIndex = 0;
+            this.tcTabs.Size = new System.Drawing.Size(944, 409);
+            this.tcTabs.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 501);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pMain);
+            this.Controls.Add(this.pGeneral);
             this.Name = "MainForm";
             this.Text = "Warehouse";
-            this.panel1.ResumeLayout(false);
+            this.pGeneral.ResumeLayout(false);
+            this.pMain.ResumeLayout(false);
+            this.pMain.PerformLayout();
+            this.ssMain.ResumeLayout(false);
+            this.ssMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Panel panel1;
-        private Button button11;
-        private Button button9;
-        private Button button8;
-        private Button button7;
-        private Button button6;
+        private Panel pGeneral;
+        private Button btUsers;
+        private Button btContractor;
+        private Button btTowards;
+        private Button btIncoming;
+        private Button btSale;
+        private Panel pMain;
+        private StatusStrip ssMain;
+        private ToolStripStatusLabel ssVersion;
+        private ToolStripStatusLabel ssUser;
+        private TabControl tcTabs;
     }
 }
