@@ -5,7 +5,12 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse", "Magazyn\Warehouse.csproj", "{5BA9C056-EF50-48EA-ADA2-626485ED38B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.test", "Magazyn.test\Warehouse.test.csproj", "{88125DE7-A2AA-4406-A48E-359DFD81F39E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.test", "Magazyn.test\Warehouse.test.csproj", "{88125DE7-A2AA-4406-A48E-359DFD81F39E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DCEFF070-5B0F-467E-81CE-2CC2F76652C7}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
