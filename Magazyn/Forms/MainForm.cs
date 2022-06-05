@@ -3,13 +3,10 @@ using Warehouse.Forms.Incoming;
 using Warehouse.Forms.Sale;
 using Warehouse.Forms.Towards;
 using Warehouse.Forms.Users;
-
 namespace Warehouse.Forms
 {
     public partial class MainForm : Form
     {
-        private string closeButtonFullPath = @"C:\Users\barte\Desktop\CloseIkon.png";
-
         private TabPage tpSale;
         private TabPage tpIncoming;
         private TabPage tpTowards;
@@ -105,7 +102,7 @@ namespace Warehouse.Forms
                 var tabPage = tcTabs.TabPages[e.Index];
                 var tabRect = tcTabs.GetTabRect(e.Index);
                 tabRect.Inflate(-2, -2);
-                    var closeImage = new Bitmap(closeButtonFullPath);
+                    var closeImage = new Bitmap(Warehouse.Properties.Resources.Close);
                     e.Graphics.DrawImage(closeImage,
                         (tabRect.Right - closeImage.Width),
                         tabRect.Top + (tabRect.Height - closeImage.Height) / 2);
@@ -121,7 +118,7 @@ namespace Warehouse.Forms
             {
                 var tabRect = tcTabs.GetTabRect(i);
                 tabRect.Inflate(-2, -2);
-                var closeImage = new Bitmap(closeButtonFullPath);
+                var closeImage = new Bitmap(Warehouse.Properties.Resources.Close);
                 var imageRect = new Rectangle(
                     (tabRect.Right - closeImage.Width),
                     tabRect.Top + (tabRect.Height - closeImage.Height) / 2,
