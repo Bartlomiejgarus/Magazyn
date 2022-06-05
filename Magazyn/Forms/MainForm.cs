@@ -7,16 +7,24 @@ namespace Warehouse.Forms
 {
     public partial class MainForm : Form
     {
-        private TabPage tpSale;
-        private TabPage tpIncoming;
-        private TabPage tpTowards;
-        private TabPage tpContractor;
-        private TabPage tpUsers;
+        #region Fields
+        private TabPage tpSale = null;
+        private TabPage tpIncoming = null;
+        private TabPage tpTowards = null;
+        private TabPage tpContractor = null;
+        private TabPage tpUsers = null;
+        #endregion Fields
 
+
+        #region Ctor
         public MainForm()
         {
             InitializeComponent();
         }
+        #endregion Ctor
+
+
+        #region Events
 
         private void btSale_Click(object sender, EventArgs e)
         {
@@ -43,6 +51,7 @@ namespace Warehouse.Forms
                 tcTabs.SelectedTab = tpIncoming;
             }
         }
+
         private void btTowards_Click(object sender, EventArgs e)
         {
             if (TowardsForm.IsNull)
@@ -95,6 +104,11 @@ namespace Warehouse.Forms
             tcTabs.SelectedTab = tpTab;
         }
 
+        #endregion Events
+
+
+        #region Private Methods
+
         private void tcTabs_DrawItem(object sender, DrawItemEventArgs e)
         {
             try
@@ -111,6 +125,7 @@ namespace Warehouse.Forms
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
         }
+
 
         private void tcTabs_MouseDown(object sender, MouseEventArgs e)
         {
@@ -137,5 +152,7 @@ namespace Warehouse.Forms
                 }
             }
         }
+
+        #endregion Private Methods
     }
 }

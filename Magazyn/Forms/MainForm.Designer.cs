@@ -60,7 +60,7 @@
             // btUsers
             // 
             this.btUsers.BackColor = System.Drawing.Color.Thistle;
-            this.btUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btUsers.Dock = System.Windows.Forms.DockStyle.Left;
             this.btUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btUsers.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btUsers.Location = new System.Drawing.Point(752, 0);
@@ -183,6 +183,7 @@
             this.ClientSize = new System.Drawing.Size(944, 501);
             this.Controls.Add(this.pMain);
             this.Controls.Add(this.pGeneral);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Text = "Warehouse";
             this.pGeneral.ResumeLayout(false);
