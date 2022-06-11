@@ -40,5 +40,20 @@ namespace Warehouse.Forms.Users
         {
             instance = null;
         }
+
+        private void btnSendMail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bsUsers_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dGVUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
