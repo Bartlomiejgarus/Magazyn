@@ -72,10 +72,8 @@ namespace Warehouse.Properties
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Close
-        {
-            get
-            {
+        internal static System.Drawing.Bitmap Close {
+            get {
                 object obj = ResourceManager.GetObject("Close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
