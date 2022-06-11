@@ -61,12 +61,20 @@ namespace Warehouse.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Contractor1.
         /// </summary>
-        internal static System.Drawing.Bitmap Close {
+        internal static string ContractorName {
             get {
-                object obj = ResourceManager.GetObject("Close", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("ContractorName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu User1.
+        /// </summary>
+        internal static string UserLogin {
+            get {
+                return ResourceManager.GetString("UserLogin", resourceCulture);
             }
         }
     }
