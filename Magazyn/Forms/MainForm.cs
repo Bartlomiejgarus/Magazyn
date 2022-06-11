@@ -3,23 +3,28 @@ using Warehouse.Forms.Incoming;
 using Warehouse.Forms.Sale;
 using Warehouse.Forms.Towards;
 using Warehouse.Forms.Users;
-
 namespace Warehouse.Forms
 {
     public partial class MainForm : Form
     {
-        private string closeButtonFullPath = @"C:\Users\barte\Desktop\CloseIkon.png";
+        #region Fields
+        private TabPage tpSale = null;
+        private TabPage tpIncoming = null;
+        private TabPage tpTowards = null;
+        private TabPage tpContractor = null;
+        private TabPage tpUsers = null;
+        #endregion Fields
 
-        private TabPage tpSale;
-        private TabPage tpIncoming;
-        private TabPage tpTowards;
-        private TabPage tpContractor;
-        private TabPage tpUsers;
 
+        #region Ctor
         public MainForm()
         {
             InitializeComponent();
         }
+        #endregion Ctor
+
+
+        #region Events
 
         private void btSale_Click(object sender, EventArgs e)
         {
@@ -46,6 +51,7 @@ namespace Warehouse.Forms
                 tcTabs.SelectedTab = tpIncoming;
             }
         }
+
         private void btTowards_Click(object sender, EventArgs e)
         {
             if (TowardsForm.IsNull)
@@ -98,6 +104,11 @@ namespace Warehouse.Forms
             tcTabs.SelectedTab = tpTab;
         }
 
+        #endregion Events
+
+
+        #region Private Methods
+
         private void tcTabs_DrawItem(object sender, DrawItemEventArgs e)
         {
             try
@@ -105,7 +116,7 @@ namespace Warehouse.Forms
                 var tabPage = tcTabs.TabPages[e.Index];
                 var tabRect = tcTabs.GetTabRect(e.Index);
                 tabRect.Inflate(-2, -2);
-                    var closeImage = new Bitmap(closeButtonFullPath);
+                    var closeImage = new Bitmap(Warehouse.Properties.Resources.Close);
                     e.Graphics.DrawImage(closeImage,
                         (tabRect.Right - closeImage.Width),
                         tabRect.Top + (tabRect.Height - closeImage.Height) / 2);
@@ -115,13 +126,14 @@ namespace Warehouse.Forms
             catch (Exception ex) { throw new Exception(ex.Message); }
         }
 
+
         private void tcTabs_MouseDown(object sender, MouseEventArgs e)
         {
             for (var i = 0; i < tcTabs.TabPages.Count; i++)
             {
                 var tabRect = tcTabs.GetTabRect(i);
                 tabRect.Inflate(-2, -2);
-                var closeImage = new Bitmap(closeButtonFullPath);
+                var closeImage = new Bitmap(Warehouse.Properties.Resources.Close);
                 var imageRect = new Rectangle(
                     (tabRect.Right - closeImage.Width),
                     tabRect.Top + (tabRect.Height - closeImage.Height) / 2,
@@ -140,5 +152,7 @@ namespace Warehouse.Forms
                 }
             }
         }
+
+        #endregion Private Methods
     }
 }
