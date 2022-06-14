@@ -149,5 +149,11 @@ namespace Warehouse.Forms.Users
 
         }
         #endregion
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            UserAddForm frm = new UserAddForm();
+            frm.ShowDialog();
+        }
     }
 }
