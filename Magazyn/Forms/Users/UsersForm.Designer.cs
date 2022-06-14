@@ -36,12 +36,13 @@
             this.btnModify = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.dGVUsers = new System.Windows.Forms.DataGridView();
-            this.bsUsers = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsUsers = new System.Windows.Forms.BindingSource(this.components);
             this.tlpUsers.SuspendLayout();
             this.pUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVUsers)).BeginInit();
@@ -134,9 +135,10 @@
             this.dGVUsers.AutoGenerateColumns = false;
             this.dGVUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
+            this.colId,
             this.colLastName,
             this.colFirstName,
+            this.colCode,
             this.colPosition,
             this.colStatus});
             this.dGVUsers.DataSource = this.bsUsers;
@@ -147,23 +149,21 @@
             this.dGVUsers.RowHeadersVisible = false;
             this.dGVUsers.RowHeadersWidth = 51;
             this.dGVUsers.RowTemplate.Height = 29;
+            this.dGVUsers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dGVUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVUsers.Size = new System.Drawing.Size(908, 554);
             this.dGVUsers.TabIndex = 1;
             this.dGVUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVUsers_CellContentClick);
             // 
-            // bsUsers
+            // colId
             // 
-            this.bsUsers.DataSource = typeof(Warehouse.ViewModel.UserViewModel);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 125;
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "Id";
+            this.colId.MinimumWidth = 6;
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
+            this.colId.Width = 125;
             // 
             // colLastName
             // 
@@ -183,6 +183,15 @@
             this.colFirstName.ReadOnly = true;
             this.colFirstName.Width = 125;
             // 
+            // colCode
+            // 
+            this.colCode.DataPropertyName = "Code";
+            this.colCode.HeaderText = "Code";
+            this.colCode.MinimumWidth = 6;
+            this.colCode.Name = "colCode";
+            this.colCode.ReadOnly = true;
+            this.colCode.Width = 125;
+            // 
             // colPosition
             // 
             this.colPosition.DataPropertyName = "Position";
@@ -190,7 +199,6 @@
             this.colPosition.MinimumWidth = 6;
             this.colPosition.Name = "colPosition";
             this.colPosition.ReadOnly = true;
-            this.colPosition.ToolTipText = "Actually occupied position";
             this.colPosition.Width = 150;
             // 
             // colStatus
@@ -201,7 +209,10 @@
             this.colStatus.MinimumWidth = 6;
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
-            this.colStatus.ToolTipText = "Status of user";
+            // 
+            // bsUsers
+            // 
+            this.bsUsers.DataSource = typeof(Warehouse.ViewModel.UserViewModel);
             // 
             // UsersForm
             // 
@@ -231,9 +242,10 @@
         private Button btnCreate;
         private DataGridView dGVUsers;
         private BindingSource bsUsers;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colLastName;
         private DataGridViewTextBoxColumn colFirstName;
+        private DataGridViewTextBoxColumn colCode;
         private DataGridViewTextBoxColumn colPosition;
         private DataGridViewTextBoxColumn colStatus;
     }

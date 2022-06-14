@@ -21,6 +21,12 @@ namespace Warehouse.ViewModel
             get { return firstName.ToUpper(); }
             set { firstName = value; }
         }
+        private string code;
+        public string Code
+        {
+            get { return code.PadLeft(4, '0'); }
+            set { code = value; }
+        }
 
         public string Position { get; set; }
 

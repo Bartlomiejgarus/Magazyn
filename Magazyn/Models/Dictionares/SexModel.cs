@@ -9,5 +9,14 @@ namespace Warehouse.Models.Dictionares
     public class SexModel : EntityModel
     {
         public string Value { get; set; }
+        public SexModel(string value)
+        {
+            Value = value;
+        }
+        public override string ToString()
+        {
+            return Value;
+        }
+
     }
 }

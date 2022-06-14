@@ -15,6 +15,8 @@ namespace Warehouse.Models
         public DateTime? DateBirth { get; set; }
         public SexModel Sex { get; set; }
 
+        public int Code { get; set; }
+
         public PositionModel Position { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
