@@ -33,6 +33,7 @@
             this.gBGeneral = new System.Windows.Forms.GroupBox();
             this.dTAddDate = new System.Windows.Forms.DateTimePicker();
             this.cBAddSex = new System.Windows.Forms.ComboBox();
+            this.bsSex = new System.Windows.Forms.BindingSource(this.components);
             this.txtAddLastName = new System.Windows.Forms.TextBox();
             this.txtAddFirstName = new System.Windows.Forms.TextBox();
             this.lbAddSex = new System.Windows.Forms.Label();
@@ -40,18 +41,25 @@
             this.lbAddLastName = new System.Windows.Forms.Label();
             this.lbAddFirstName = new System.Windows.Forms.Label();
             this.gBContact = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAddMail = new System.Windows.Forms.TextBox();
+            this.txtAddPhoneNumber = new System.Windows.Forms.TextBox();
             this.lbAddMail = new System.Windows.Forms.Label();
             this.lbAddPhoneNumber = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSaveUser = new System.Windows.Forms.Button();
             this.btnCancelUser = new System.Windows.Forms.Button();
-            this.sexModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.epFirstName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epPhoneNumber = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epMail = new System.Windows.Forms.ErrorProvider(this.components);
             this.gBGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSex)).BeginInit();
             this.gBContact.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sexModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epFirstName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epPhoneNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epMail)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUser
@@ -85,7 +93,6 @@
             // 
             this.dTAddDate.CustomFormat = " ";
             this.dTAddDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dTAddDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTAddDate.Location = new System.Drawing.Point(161, 122);
             this.dTAddDate.Name = "dTAddDate";
             this.dTAddDate.Size = new System.Drawing.Size(273, 27);
@@ -93,7 +100,7 @@
             // 
             // cBAddSex
             // 
-            this.cBAddSex.DataSource = this.sexModelBindingSource;
+            this.cBAddSex.DataSource = this.bsSex;
             this.cBAddSex.DisplayMember = "Value";
             this.cBAddSex.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cBAddSex.FormattingEnabled = true;
@@ -102,7 +109,11 @@
             this.cBAddSex.Size = new System.Drawing.Size(134, 31);
             this.cBAddSex.TabIndex = 6;
             this.cBAddSex.ValueMember = "UserId";
-               // 
+            // 
+            // bsSex
+            // 
+            this.bsSex.DataSource = typeof(Warehouse.Models.Dictionares.SexModel);
+            // 
             // txtAddLastName
             // 
             this.txtAddLastName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -110,6 +121,7 @@
             this.txtAddLastName.Name = "txtAddLastName";
             this.txtAddLastName.Size = new System.Drawing.Size(273, 30);
             this.txtAddLastName.TabIndex = 5;
+            this.txtAddLastName.TextChanged += new System.EventHandler(this.txtAddLastName_TextChanged);
             // 
             // txtAddFirstName
             // 
@@ -118,6 +130,7 @@
             this.txtAddFirstName.Name = "txtAddFirstName";
             this.txtAddFirstName.Size = new System.Drawing.Size(273, 30);
             this.txtAddFirstName.TabIndex = 4;
+            this.txtAddFirstName.TextChanged += new System.EventHandler(this.txtAddFirstName_TextChanged);
             // 
             // lbAddSex
             // 
@@ -161,8 +174,8 @@
             // 
             // gBContact
             // 
-            this.gBContact.Controls.Add(this.textBox2);
-            this.gBContact.Controls.Add(this.textBox1);
+            this.gBContact.Controls.Add(this.txtAddMail);
+            this.gBContact.Controls.Add(this.txtAddPhoneNumber);
             this.gBContact.Controls.Add(this.lbAddMail);
             this.gBContact.Controls.Add(this.lbAddPhoneNumber);
             this.gBContact.Location = new System.Drawing.Point(12, 317);
@@ -172,19 +185,21 @@
             this.gBContact.TabStop = false;
             this.gBContact.Text = "Contact";
             // 
-            // textBox2
+            // txtAddMail
             // 
-            this.textBox2.Location = new System.Drawing.Point(161, 79);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(273, 27);
-            this.textBox2.TabIndex = 3;
+            this.txtAddMail.Location = new System.Drawing.Point(161, 79);
+            this.txtAddMail.Name = "txtAddMail";
+            this.txtAddMail.Size = new System.Drawing.Size(273, 27);
+            this.txtAddMail.TabIndex = 3;
+            this.txtAddMail.TextChanged += new System.EventHandler(this.txtAddMail_TextChanged);
             // 
-            // textBox1
+            // txtAddPhoneNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(161, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(273, 27);
-            this.textBox1.TabIndex = 2;
+            this.txtAddPhoneNumber.Location = new System.Drawing.Point(161, 41);
+            this.txtAddPhoneNumber.Name = "txtAddPhoneNumber";
+            this.txtAddPhoneNumber.Size = new System.Drawing.Size(273, 27);
+            this.txtAddPhoneNumber.TabIndex = 2;
+            this.txtAddPhoneNumber.TextChanged += new System.EventHandler(this.txtAddPhoneNumber_TextChanged);
             // 
             // lbAddMail
             // 
@@ -245,9 +260,21 @@
             this.btnCancelUser.UseVisualStyleBackColor = true;
             this.btnCancelUser.Click += new System.EventHandler(this.btnCancelUser_Click);
             // 
-            // sexModelBindingSource
+            // epFirstName
             // 
-            this.sexModelBindingSource.DataSource = typeof(Warehouse.Models.Dictionares.SexModel);
+            this.epFirstName.ContainerControl = this;
+            // 
+            // epLastName
+            // 
+            this.epLastName.ContainerControl = this;
+            // 
+            // epPhoneNumber
+            // 
+            this.epPhoneNumber.ContainerControl = this;
+            // 
+            // epMail
+            // 
+            this.epMail.ContainerControl = this;
             // 
             // UserAddForm
             // 
@@ -264,10 +291,14 @@
             this.Text = "Add User";
             this.gBGeneral.ResumeLayout(false);
             this.gBGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSex)).EndInit();
             this.gBContact.ResumeLayout(false);
             this.gBContact.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sexModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epFirstName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epPhoneNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epMail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,13 +317,17 @@
         private ComboBox cBAddSex;
         private TextBox txtAddLastName;
         private TextBox txtAddFirstName;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtAddMail;
+        private TextBox txtAddPhoneNumber;
         private Label lbAddMail;
         private Label lbAddPhoneNumber;
         private PictureBox pictureBox1;
         private Button btnSaveUser;
         private Button btnCancelUser;
-        private BindingSource sexModelBindingSource;
+        private BindingSource bsSex;
+        private ErrorProvider epFirstName;
+        private ErrorProvider epLastName;
+        private ErrorProvider epPhoneNumber;
+        private ErrorProvider epMail;
     }
 }
