@@ -13,21 +13,38 @@ namespace Warehouse.Helpers
         public static IList<UserViewModel> MapUserModelToUserViewModel
             (IList<UserModel> usersModel)
         {
-            IList<UserViewModel> fakeUsersViewModel = new List<UserViewModel>();
+            IList<UserViewModel> UsersViewModel = new List<UserViewModel>();
             foreach (UserModel UserModel in usersModel)
             {
-                UserViewModel fakeUserViewModel = new UserViewModel();
-                fakeUserViewModel.Id = UserModel.UserId;
-                fakeUserViewModel.LastName = UserModel.LastName;
-                fakeUserViewModel.FirstName = UserModel.FirstName;
-                fakeUserViewModel.Code = UserModel.Code.ToString();
+                UserViewModel UserViewModel = new UserViewModel();
+                UserViewModel.Id = UserModel.UserId;
+                UserViewModel.LastName = UserModel.LastName;
+                UserViewModel.FirstName = UserModel.FirstName;
+                UserViewModel.Code = UserModel.Code.ToString();
 
-                fakeUserViewModel.Position = string.Empty;
-                fakeUserViewModel.Status = UserModel.Status.ToString();
+                UserViewModel.Position = string.Empty;
+                UserViewModel.Status = UserModel.Status.ToString();
 
-                fakeUsersViewModel.Add(fakeUserViewModel);
+                UsersViewModel.Add(UserViewModel);
             }
-            return fakeUsersViewModel;
+            return UsersViewModel;
+
+        }
+
+        public static UserViewModel MapUserModelToUserViewModel(UserModel userModel)
+        {
+            
+                UserViewModel UserViewModel = new UserViewModel();
+                UserViewModel.Id = userModel.UserId;
+                UserViewModel.LastName = userModel.LastName;
+                UserViewModel.FirstName = userModel.FirstName;
+                UserViewModel.Code = userModel.Code.ToString();
+
+                UserViewModel.Position = string.Empty;
+                UserViewModel.Status = userModel.Status.ToString();
+
+
+            return UserViewModel;
 
         }
     }

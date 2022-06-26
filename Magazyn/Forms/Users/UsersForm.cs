@@ -12,6 +12,7 @@ using Warehouse.Models.Dictionares;
 using Warehouse.ViewModel;
 using System.Linq;
 using Warehouse.Helpers;
+using Warehouse.Classes;
 
 namespace Warehouse.Forms.Users
 {
@@ -57,7 +58,7 @@ namespace Warehouse.Forms.Users
 
         private IList<UserViewModel> GetFakeUsers()
         {
-            IList<UserModel> fakeUsersModel = new List<UserModel>()
+            IList<UserModel> UsersModel = new List<UserModel>()
             {
                 new UserModel()
                 {
@@ -114,7 +115,7 @@ namespace Warehouse.Forms.Users
 
             };
 
-            return MappingHelper.MapUserModelToUserViewModel(fakeUsersModel);
+            return MappingHelper.MapUserModelToUserViewModel(UsersModel);
         }
         #endregion
         #region Events  
@@ -148,26 +149,28 @@ namespace Warehouse.Forms.Users
         {
 
         }
-        #endregion
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
             UserAddForm frm = new UserAddForm();
             frm.ShowDialog();
-            //frm.ReloadEmployees += (s, ea) =>
-            //{
-                //UserEventArgs evetArgs = ea as UserEventArgs;
-                //if (evetArgs != null)
-                //{
-                    //UserViewModel employee
-                        //= MappingHelper.MapUserModelToUserViewModel(evetArgs.User);
-                    //bsUsers.Add(employee);
+            frm.ReloadUsers += (s, ea) =>
+            {
+                UserEventArgs evetArgs = ea as UserEventArgs;
+                if (evetArgs != null)
+                {
+                    UserViewModel employee
+                        = MappingHelper.MapUserModelToUserViewModel(evetArgs.User);
+                    bsUsers.Add(employee);
 
-                    //dgvUsers.ClearSelection();
-                    //dgvUsers.Rows[dgvEmployees.Rows.Count - 1].Selected = true;
-                //}
-            //};
-            //frm.ShowDialog();
+                    dGVUsers.ClearSelection();
+                    dGVUsers.Rows[dGVUsers.Rows.Count - 1].Selected = true;
+                }
+            };
+            frm.ShowDialog();
         }
+        #endregion
+
+
     }
 }

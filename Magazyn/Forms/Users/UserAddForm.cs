@@ -7,21 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Warehouse.Classes;
 using Warehouse.Forms.Base;
 using Warehouse.Models;
 using Warehouse.Models.Dictionares;
 
 namespace Warehouse.Forms.Users
 {
+
     public partial class UserAddForm : BaseAddEditForm
     {
+        #region Fields
+        public EventHandler ReloadUsers;
+        #endregion
+        #region Constructor
         public UserAddForm()
         {
             InitializeComponent();
             InitializeData();
             ValidateControls();
         }
-
+        #endregion
+        #region PrivateMethods
         private void ValidateControls()
         {
             if (string.IsNullOrWhiteSpace(txtAddFirstName.Text))
@@ -73,45 +80,6 @@ namespace Warehouse.Forms.Users
             cBAddSex.Text = string.Empty;
         }
 
-        private void btnSaveUser_Click(object sender, EventArgs e)
-        {
-            Save();
-        }
-
-        private void btnCancelUser_Click(object sender, EventArgs e)
-        {
-            Cancel();
-        }
-        protected override void Cancel()
-        {
-            MessageBox.Show("Cancelled");
-            Close();
-        }
-        protected override void Save()
-        {
-            if (ValidateForm())
-            {
-                UserModel user = new UserModel()
-                {
-                    LastName = txtAddLastName.Text,
-                    FirstName = txtAddFirstName.Text,
-                    Sex = new SexModel(cBAddSex.Text),
-                    DateBirth = dTAddDate.Value,
-                    PhoneNumber = txtAddPhoneNumber.Text,
-                    Email = txtAddMail.Text,
-                    Status = new StatusModel("Wprowadzony")
-                };
-
-                //employee = CreateEmployee(employee);
-                user.UserId = 5;
-                user.Code = 5;
-
-                //ReloadEmployees?.Invoke(btnSave, new EmployeeEventArgs(employee));
-
-                Close();
-            }
-        }
-
         private bool ValidateForm()
         {
             StringBuilder sbErrorMessage = new StringBuilder();
@@ -152,6 +120,17 @@ namespace Warehouse.Forms.Users
 
             return true;
         }
+        #endregion
+        #region Events
+        private void btnSaveUser_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        private void btnCancelUser_Click(object sender, EventArgs e)
+        {
+            Cancel();
+        }
 
         private void txtAddFirstName_TextChanged(object sender, EventArgs e)
         {
@@ -183,12 +162,53 @@ namespace Warehouse.Forms.Users
             //string phnumber = txtAddPhoneNumber.Text;
             //if(!string.IsNullOrWhiteSpace(phnumber))
             //{
-                //epPhoneNumber.SetError(txtAddPhoneNumber, "Wrong phone number");
+            //epPhoneNumber.SetError(txtAddPhoneNumber, "Wrong phone number");
             //}
             //else
             //{
-                //epPhoneNumber.Clear();
+            //epPhoneNumber.Clear();
             //}
         }
+        #endregion
+        #region Override
+        protected override void Cancel()
+        {
+            Close();
+        }
+        protected override void Save()
+        {
+            if (ValidateForm())
+            {
+                UserModel user = new UserModel()
+                {
+                    LastName = txtAddLastName.Text,
+                    FirstName = txtAddFirstName.Text,
+                    Sex = new SexModel(cBAddSex.Text),
+                    DateBirth = dTAddDate.Value,
+                    PhoneNumber = txtAddPhoneNumber.Text,
+                    Email = txtAddMail.Text,
+                    Status = new StatusModel("Wprowadzony")
+                };
+
+                //employee = CreateEmployee(employee);
+                user.UserId = 5;
+                user.Code = 5;
+
+                ReloadUsers?.Invoke(btnSaveUser, new UserEventArgs(user));
+                MessageBox.Show("Saved");
+                Close();
+            }
+        }
+        #endregion
+
+
+
+
+
+
+
+
+
+
     }
 }
