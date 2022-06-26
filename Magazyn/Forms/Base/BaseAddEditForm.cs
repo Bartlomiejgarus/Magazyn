@@ -16,5 +16,7 @@ namespace Warehouse.Forms.Base
         {
             InitializeComponent();
         }
+        protected virtual void Save() { }
+        protected virtual void Cancel() { }
     }
 }

@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Warehouse.Forms.Base;
+using Warehouse.Models;
 using Warehouse.Models.Dictionares;
 
 namespace Warehouse.Forms.Users
 {
-    public partial class UserAddForm : Form
+    public partial class UserAddForm : BaseAddEditForm
     {
         public UserAddForm()
         {
@@ -73,16 +75,42 @@ namespace Warehouse.Forms.Users
 
         private void btnSaveUser_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Saved");
-            Close();
+            Save();
         }
 
         private void btnCancelUser_Click(object sender, EventArgs e)
         {
+            Cancel();
+        }
+        protected override void Cancel()
+        {
             MessageBox.Show("Cancelled");
             Close();
         }
+        protected override void Save()
+        {
+            if (ValidateForm())
+            {
+                UserModel user = new UserModel()
+                {
+                    LastName = txtAddLastName.Text,
+                    FirstName = txtAddFirstName.Text,
+                    Sex = new SexModel(cBAddSex.Text),
+                    DateBirth = dTAddDate.Value,
+                    PhoneNumber = txtAddPhoneNumber.Text,
+                    Email = txtAddMail.Text,
+                    Status = new StatusModel("Wprowadzony")
+                };
 
+                //employee = CreateEmployee(employee);
+                user.UserId = 5;
+                user.Code = 5;
+
+                //ReloadEmployees?.Invoke(btnSave, new EmployeeEventArgs(employee));
+
+                Close();
+            }
+        }
 
         private bool ValidateForm()
         {
@@ -143,6 +171,24 @@ namespace Warehouse.Forms.Users
         private void txtAddMail_TextChanged(object sender, EventArgs e)
         {
             ValidateControls();
+        }
+
+        private void txtAddPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtAddPhoneNumber_Validated(object sender, EventArgs e)
+        {
+            //string phnumber = txtAddPhoneNumber.Text;
+            //if(!string.IsNullOrWhiteSpace(phnumber))
+            //{
+                //epPhoneNumber.SetError(txtAddPhoneNumber, "Wrong phone number");
+            //}
+            //else
+            //{
+                //epPhoneNumber.Clear();
+            //}
         }
     }
 }

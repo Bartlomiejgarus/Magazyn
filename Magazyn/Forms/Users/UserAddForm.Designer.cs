@@ -200,6 +200,8 @@
             this.txtAddPhoneNumber.Size = new System.Drawing.Size(273, 27);
             this.txtAddPhoneNumber.TabIndex = 2;
             this.txtAddPhoneNumber.TextChanged += new System.EventHandler(this.txtAddPhoneNumber_TextChanged);
+            this.txtAddPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddPhoneNumber_KeyPress);
+            this.txtAddPhoneNumber.Validated += new System.EventHandler(this.txtAddPhoneNumber_Validated);
             // 
             // lbAddMail
             // 

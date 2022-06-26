@@ -154,6 +154,20 @@ namespace Warehouse.Forms.Users
         {
             UserAddForm frm = new UserAddForm();
             frm.ShowDialog();
+            //frm.ReloadEmployees += (s, ea) =>
+            //{
+                //UserEventArgs evetArgs = ea as UserEventArgs;
+                //if (evetArgs != null)
+                //{
+                    //UserViewModel employee
+                        //= MappingHelper.MapUserModelToUserViewModel(evetArgs.User);
+                    //bsUsers.Add(employee);
+
+                    //dgvUsers.ClearSelection();
+                    //dgvUsers.Rows[dgvEmployees.Rows.Count - 1].Selected = true;
+                //}
+            //};
+            //frm.ShowDialog();
         }
     }
 }
