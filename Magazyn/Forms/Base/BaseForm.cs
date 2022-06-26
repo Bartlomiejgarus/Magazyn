@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace Warehouse.Forms.Base
 {
-    public partial class BaseAddEditForm : BaseForm
+    public partial class BaseForm : Form
     {
-        public BaseAddEditForm()
+        public BaseForm()
         {
             InitializeComponent();
         }
-        protected virtual void Save() { }
-        protected virtual void Cancel() { }
     }
 }

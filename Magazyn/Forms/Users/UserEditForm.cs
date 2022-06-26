@@ -7,16 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Warehouse.Forms.Base;
 
-namespace Warehouse.Forms.Base
+namespace Warehouse.Forms.Users
 {
-    public partial class BaseAddEditForm : BaseForm
+    public partial class UserEditForm : BaseAddEditForm
     {
-        public BaseAddEditForm()
+        public UserEditForm()
         {
             InitializeComponent();
         }
-        protected virtual void Save() { }
-        protected virtual void Cancel() { }
     }
 }

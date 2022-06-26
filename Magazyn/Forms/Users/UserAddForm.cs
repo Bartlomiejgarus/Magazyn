@@ -177,6 +177,7 @@ namespace Warehouse.Forms.Users
         }
         protected override void Save()
         {
+            //MessageBox.Show("Saved1");
             if (ValidateForm())
             {
                 UserModel user = new UserModel()
@@ -193,10 +194,10 @@ namespace Warehouse.Forms.Users
                 //employee = CreateEmployee(employee);
                 user.UserId = 5;
                 user.Code = 5;
-
-                ReloadUsers?.Invoke(btnSaveUser, new UserEventArgs(user));
-                MessageBox.Show("Saved");
                 Close();
+                ReloadUsers?.Invoke(btnSaveUser, new UserEventArgs(user));
+                MessageBox.Show("Saved2");
+                
             }
         }
         #endregion
